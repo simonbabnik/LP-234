@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="add-dog-container">
+    <h1 class="center">Add dog</h1>
+    <form [formGroup]="dogForm" (ngSubmit)="onSubmit()">
+      <label>Name:</label>
+      <input class="input-element" formControlName="ime" type="text" id="name" name="name" placeholder="Name">
+      <br>
+      <label>Breed:</label>
+      <select class="input-element" formControlName="pasma" id="breed" name="breed" placeholder="Breed">
+          <option *ngFor="let breed of breeds" value="{{ breed.name }}">{{ breed.name }}</option>
+      </select>
+      <br>
+      <label>Description:</label>
+      <textarea class="input-element" formControlName="opis" name="description" rows="10" cols="30" placeholder="Description"></textarea>
+      <br>
+      <button type="submit" class="button-color-accent" [disabled]="!dogForm.valid">Add dog</button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,54 @@
+.container {
+  height: 90vh;
+  display: grid;
+}
+
+.add-dog-container {
+  width: 50%;
+  border: #cccccc solid 2px;
+  border-radius: 8px;
+  margin: auto;
+  padding-inline: 20px;
+  text-align: center;
+  background-color: white;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Button */
+.button-color-accent {
+  background-color: palevioletred;
+  color: white;
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.button-color-accent:hover {
+  background-color: #b72c50;
+  color: white;
+}
+
+.button-color-accent:focus {
+  background-color: #b72c50;
+  color: white;
+}
+
+h1 {
+  font-weight: 500;
+  font-size: 1.5rem;
+  margin: 20px auto;
+}

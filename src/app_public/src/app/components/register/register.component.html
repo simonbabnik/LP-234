@@ -1,0 +1,37 @@
+<div class="container">
+
+  <!--Register form-->
+  <div class="register-container mt-5 mb-5">
+
+    <!--Alert-->
+    <div class="row justify-content-center mt-3">
+      <ngb-alert *ngIf="!alert.hidden" [type]="alert.type" (closed)="alert.hidden = true" class="w-75">{{ alert.message }}</ngb-alert>
+    </div>
+
+    <h1 class="mt-3 m-bottom-5">Register</h1>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <input type="text" id="firstname" name="firstname" placeholder="First name" formControlName="firstName">
+      <input type="text" id="surname" name="surname" placeholder="Last name" formControlName="surname">
+      <input type="email" id="email" name="email" placeholder="Email" formControlName="email">
+      <input type="password" id="password" name="password" placeholder="Password" formControlName="password">
+      <input type="password" id="password_confirm" name="password_confirm" placeholder="Confirm password" formControlName="passwordConfirm">
+      <div class="input-inline">
+        <label for="birthday">Date of birth</label>
+        <input type="date" id="birthday" name="birthday" class="field-inline" formControlName="birthday">
+      </div>
+      <div class="input-inline">
+        <label for="documentID">Upload ID</label>
+        <input type="file" id="documentID" name="documentID" class="field-inline" formControlName="documentID" (change)="encodeFile($event, 'documentID')">
+      </div>
+      <div class="input-inline">
+        <label for="profile">Upload profile picture</label>
+        <input type="file" id="profile" name="profile_picture" class="field-inline" formControlName="profilePicture" (change)="encodeFile($event, 'profilePicture')">
+      </div>
+      <div class="input-inline-left">
+        <input type="checkbox" id="is_dog_walker" name="is_dog_walker" formControlName="role">
+        <label for="is_dog_walker">I am a dog walker.</label>
+      </div>
+      <button type="submit" class="button-color-accent m-top-5 m-bottom-5" [disabled]="!registerForm.valid">Register</button>
+    </form>
+  </div>
+</div>

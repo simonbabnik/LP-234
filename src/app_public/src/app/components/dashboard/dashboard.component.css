@@ -1,0 +1,229 @@
+h1 {
+    text-align: center;
+    margin: 20px auto;
+  }
+  
+  .h1 {
+    text-align: center;
+    margin: 10px auto;
+  }
+  
+  .container {
+    background-color: pink;
+    height: fit-content;
+    width: 70%;
+    margin: 20px auto;
+    border: 5px white solid;
+    border-radius: 15px;
+  }
+  
+  .data-fields {
+    padding: 5px 20px 30px 20px;
+    margin: auto;
+    vertical-align: top;
+  }
+  
+  .profile-image {
+    width: 20%;
+    border-radius: 15px;
+    display: inline-block;
+    margin: auto 0;
+  }
+  
+  .user-data {
+    display: inline-block;
+    width: 90%;
+    margin-left: 20px;
+  }
+  
+  .profile-description {
+    background-color: white;
+    height: fit-content;
+    margin: auto;
+    border-radius: 15px;
+    padding: 10px;
+    width: 60%;
+  }
+  
+  .edit-delete {
+    text-align: right;
+  }
+  
+  .edit-icon {
+    width: 30px;
+    display: inline-block;
+    margin: 10px;
+    cursor: pointer;
+  }
+  
+  hr {
+    height: 3px;
+    margin: 10px auto;
+    background-color: black;
+    width: 80%;
+    border: none;
+  }
+
+  .special-center {
+    position: relative;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  
+  .text-h5 {
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+  
+  .m-left {
+    margin-left: 5px;
+  }
+  
+  .icon {
+    height: 25px;
+  }
+  
+  .button-green {
+    background-color: mediumspringgreen;
+    border-color: black;
+    display: inline-block;
+    position: absolute;
+    right: 0;
+  }
+  
+  .button-green:hover {
+    background-color: #01ec92;
+  }
+  
+  .button-green:focus {
+    background-color: #01ec92;
+  }
+  
+  /* Overriding styles */
+  
+  .button-color-accent {
+    padding: 5px 20px;
+    width: auto;
+  }
+  
+  hr {
+    background-color: black;
+  }
+  
+  .card-header {
+    background-color: pink;
+    border-color: black;
+  }
+  
+  .card {
+    border-color: black;
+  }
+  
+  .list-group-item {
+    border-color: black;
+  }
+  
+  .btn-warning {
+    background-color: #ffff6e;
+    border-color: black;
+  }
+  
+  .btn-danger-special {
+    background-color: #ff6363;
+    border-color: black;
+  }
+  
+  .btn-warning:hover {
+    background-color: #fafa1c;
+    border-color: black;
+  }
+  
+  .btn-danger-special:hover {
+    background-color: #fd2323;
+    border-color: black;
+  }
+  
+  .btn-warning:focus {
+    background-color: #fafa1c;
+    border-color: black;
+  }
+  
+  .btn-danger-special:focus {
+    background-color: #fd2323;
+    border-color: black;
+  }
+  
+  .list-group-item-action:hover {
+    background-color: pink;
+  }
+  
+  .list-group-item-action:focus {
+    background-color: pink;
+  }
+  
+  #mapid {
+    height: 250px;
+  }
+  
+  .btn-colored {
+    background-color: palevioletred;
+    color: white;
+  }
+  
+  .btn-colored:hover {
+    background-color: #b72c50;
+    color: white;
+  }
+  
+  .btn-colored:focus {
+    background-color: #b72c50;
+    color: white;
+  }
+  
+  .no-posts-text {
+    background-color: white;
+    padding: 20px;
+    border: black solid 1px;
+  }
+  
+  /deep/ .pagination .page-link {
+    background-color: white !important;
+    border-color: black;
+    color: #b72c50;
+  }
+  
+  /deep/ .pagination .page-link:focus {
+    box-shadow: 0 0 0 0.2rem rgba(255, 99, 71, 0.25) !important;
+  }
+  
+  /deep/ .pagination .page-item.active .page-link {
+    background-color: palevioletred !important;
+    border-color: black;
+    color: white;
+  }
+  
+  /deep/ .pagination .page-item .page-link.focus {
+    box-shadow: 0 0 0 0.2rem rgba(255, 99, 71, 0.25) !important;
+  }
+  
+  /deep/ .pagination .page-item.disabled .page-link {
+    background-color: white !important;
+    border-color: black;
+  }
+  
+  .btn.button-color-accent:focus, btn.btn-colored:focus {
+    border-color: #b72c50;
+    box-shadow: 0 0 0 0.2rem rgba(255, 99, 71, 0.25);
+  }
+  
+  .btn.btn-colored:focus-within {
+    border-color: #b72c50;
+    box-shadow: 0 0 0 0.2rem rgba(255, 99, 71, 0.25);
+  }
+  

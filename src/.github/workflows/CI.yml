@@ -1,0 +1,25 @@
+name: Neprekinjena integracija
+
+on: # Kdaj se začne izvajanje delovnega toka?
+  push:
+    branches:
+      - testno-okolje # Ob vsaki uveljavitvi na veji testno-okolje.
+    paths-ignore:
+      - "README.md" # Ignoriramo spremembe v dokumentaciji.
+
+jobs:
+  build:
+    runs-on: # Okolje, v katerem se testi izvedejo.
+      - ubuntu-latest
+    strategy:
+      matrix:
+        node-verzija:
+          - 15.x
+    steps: # Posamezni koraki testiranja.
+      - uses: actions/checkout@v2 # Pridobimo izvorno kodo repozitorija.
+      - name: Uporabi Node.js ${{ matrix.node-verzija }} # Nastavi Node.js okolje.
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-verzija }}
+      - run: npm install # Namesti knjižnice.
+      - run: npm test # Poženi teste.

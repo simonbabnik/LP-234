@@ -1,0 +1,26 @@
+[
+    {
+      "id_uporabnik": {"$oid":"aaaaaaaaaaaaaaaaaaaaaaa4"},
+      "naziv": "Sprehajam pse",
+      "cena": 10,
+      "kraj": "Ljubljana",
+      "opis": "Po ugodni ceni lahko peljem vasega psa na sprehod in za njega po potrebi tudi dodatno skrbim.",
+      "ocena": "5"
+    },
+    {
+      "id_uporabnik": {"$oid":"aaaaaaaaaaaaaaaaaaaaaaa5"},
+      "naziv": "Sprehajam pse brezplacno",
+      "cena": 0,
+      "kraj": "Maribor",
+      "opis": "Brezplacno lahko peljem vasega psa na sprehod in za njega po potrebi tudi dodatno skrbim.",
+      "ocena":"4"
+    },
+    {
+      "id_uporabnik": {"$oid":"aaaaaaaaaaaaaaaaaaaaaaa6"},
+      "naziv": "Sprehajam pse",
+      "cena": 5,
+      "kraj": "Celje",
+      "opis": "Po zelo ugodni ceni lahko peljem vasega psa na sprehod in za njega po potrebi tudi dodatno skrbim.",
+      "ocena":"1"
+    }
+]

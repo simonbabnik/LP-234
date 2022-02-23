@@ -1,0 +1,209 @@
+<div class="container col-md-6">
+  <div class="special-center">
+    <h1>Home</h1>
+    <button *ngIf="getRole() === 'sprehajalec'" routerLink="add_post" type="button" class="btn btn-sm button-green" title="Add post"><img class="icon" src="../../../assets/img/plus.jpg" alt="add post"> Add post</button>
+  </div>
+
+  <div *ngIf="sorting || (this.posts && this.posts.length != 0)">
+    <!-- Sorting -->
+    <div class="text-h5 mb-3">Sorting options</div>
+    <div class="list-group">
+      <button type="button" class="list-group-item list-group-item-action" aria-current="true" (click)="sortByBestRated()">
+        Sort by best-rated dog walkers
+      </button>
+      <div class="list-group-item ">
+        <div class="row justify-content-between align-items-center">
+          <div class="col d-flex">Filter by location:</div>
+          <div class="col">
+            <select class="form-control" id="filterLocation">
+              <option *ngFor="let location of locations" value="{{ location.kraj }}">{{ location.kraj }} ({{ location.postnaStevilka }})</option>
+            </select>
+          </div>
+          <div class="d-flex col justify-content-end">
+            <button type="button" class="btn btn-sm button-color-accent" (click)="filterByLocation()">Apply</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="m-5">
+
+    <!-- Posts -->
+    <div class="card mb-4" *ngFor="let post of posts | slice: (page-1) * pageSize : page * pageSize; let i = index">
+      <h5 class="card-header d-flex justify-content-between align-items-center">
+        <!-- Stars -->
+        <div [innerHtml] = "getRating(post.id_uporabnik) | stars"></div>
+
+        <div>
+          <button *ngIf="getRole() === 'admin'" type="button" class="btn btn-sm btn-warning" title="Edit post" (click)="openEdit(edit, post._id)"><img class="icon" src="../../../assets/img/edit.png" alt="edit post"></button>
+          <button *ngIf="getRole() === 'admin'" type="button" class="btn btn-sm btn-danger btn-danger-special m-left" title="Delete post" (click)="deletePost(post._id)"><img class="icon" src="../../../assets/img/delete.png" alt="delete post"></button>
+        </div>
+      </h5>
+      <div class="card-body">
+        <div class="row">
+          <div class="col">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="location">Location</span>
+              </div>
+              <p class="form-control">{{post.kraj}}</p>
+            </div>
+          </div>
+          <div class="col">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="price">Price (€)</span>
+              </div>
+              <p class="form-control">{{post.cena}}</p>
+            </div>
+          </div>
+        </div>
+        <h5 class="card-title">{{post.naziv}}</h5>
+        <p class="card-text">{{(post.opis.length>300)? (post.opis | slice:0:300)+'...':(post.opis)}}</p>
+        <button *ngIf="isUserLoggedIn()" class="btn btn-sm button-color-accent" (click)="openDetails(details, i)">More</button>
+        <button *ngIf="!isUserLoggedIn()" class="btn btn-sm button-color-accent" (click)="openGenericModal(login)">More</button>
+      </div>
+    </div>
+    <!-- Pagination -->
+    <div class="d-flex justify-content-center">
+      <ngb-pagination
+          [(page)]="page"
+          [pageSize]="pageSize"
+          [collectionSize]="posts.length">
+      </ngb-pagination>
+    </div>
+  </div>
+  <div *ngIf="!postsPresent" class="text-center mt-5 font-weight-bold no-posts-text" id="noPosts">No posts yet :(</div>
+
+</div>
+
+<!-- See post modal -->
+<ng-template #details let-modal>
+  <div class="modal-header">
+    <div class="col">
+      <div class="row">
+        <h4 *ngIf="modalUser; else elseBlock" class="modal-title">{{modalUser.ime}} {{modalUser.priimek}}</h4>
+        <ng-template #elseBlock><h4 class="modal-title">No user.</h4></ng-template>
+      </div>
+      <div class="row">
+        <h4 *ngIf="modalUser" class="modal-title" [innerHtml] = "getRating(modalUser._id) | stars"></h4>
+      </div>
+    </div>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Location</span>
+          </div>
+          <p class="form-control">{{detailsModal.post.kraj}}</p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Price (€)</span>
+          </div>
+          <p class="form-control">{{detailsModal.post.cena}}</p>
+        </div>
+      </div>
+    </div>
+    <h5 class="card-title">{{detailsModal.post.naziv}}</h5>
+    <p class="card-text">{{detailsModal.post.opis}}</p>
+    <!-- Map -->
+    <div id="mapid"></div>
+  </div>
+  <div class="modal-footer">
+    <button *ngIf="modalUser" type="button" class="btn btn-colored" (click)="openGenericModal(contact)">Contact</button>
+    <a *ngIf="modalUser" routerLink="profile/{{detailsModal.post.id_uporabnik}}" target="_blank" type="button" class="btn btn-info">See profile</a>
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Close click')">Close</button>
+  </div>
+</ng-template>
+
+<!-- Contact modal -->
+<ng-template #contact let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Contact dog walker</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p class="card-text"><span class="font-weight-bold">Email:</span> {{modalUser.email}}</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Close click')">Close</button>
+  </div>
+</ng-template>
+
+<!-- Login modal -->
+<ng-template #login let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">You are not logged in!</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p class="card-text">You have to log in to see the details.</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-colored" routerLink="login" (click)="modal.close('Login click')">Login</button>
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Close click')">Close</button>
+  </div>
+</ng-template>
+
+<!-- Edit post modal -->
+<ng-template #edit let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Edit post</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <!--Alert-->
+    <div class="row justify-content-center">
+      <ngb-alert *ngIf="!alert.hidden" [type]="alert.type" (closed)="alert.hidden = true" style="word-break: break-all">{{ alert.message }}</ngb-alert>
+    </div>
+    <form [formGroup]="postEditForm">
+      <div class="form-group row">
+        <label for="postTitle" class="col-sm-2 col-form-label">Title</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="postTitle" formControlName="postTitle" required>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="postLocation" class="col-sm-2 col-form-label">Location</label>
+        <div class="col-sm-10">
+          <select class="form-control" id="postLocation" formControlName="postLocation" required>
+            <option *ngFor="let location of locations" value="{{ location.kraj }}">{{ location.kraj }} ({{ location.postnaStevilka }})</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="postPrice" class="col-sm-2 col-form-label">Price</label>
+        <div class="col-sm-10">
+          <div class="input-group mb-3">
+            <input type="number" class="form-control" id="postPrice" formControlName="postPrice" required min="0">
+            <div class="input-group-append">
+              <span class="input-group-text">€</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="postDescription">Description</label>
+        <textarea class="form-control" id="postDescription" rows="3" formControlName="postDescription" required></textarea>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-colored" (click)="editPost()">Apply</button>
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Close click')">Close</button>
+  </div>
+</ng-template>

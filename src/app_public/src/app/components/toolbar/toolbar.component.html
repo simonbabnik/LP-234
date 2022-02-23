@@ -1,0 +1,17 @@
+<div class="toolbar-main-div">
+  <a routerLink="">
+    Home
+  </a>
+  <a  [routerLink]="['profile']">
+    Profile
+  </a>
+  <a *ngIf="jeAdmin" routerLink="admin">
+    Dashboard
+  </a>
+  <a *ngIf="jeAdmin || jeVerifier" routerLink="verify">
+    Verify
+  </a>
+  <a  class="logout" (click)="logout()">
+    Logout
+  </a>
+</div>

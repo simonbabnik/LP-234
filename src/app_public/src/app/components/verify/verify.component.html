@@ -1,0 +1,67 @@
+<h1>Verification of users</h1>
+
+<div *ngFor="let user of users;let i = index;" class="verify-container mt-5 mb-5">
+
+  <div class="row" style="margin-left: 0; margin-right: 0">
+
+    <!-- Profile data -->
+    <div class="profile-data-container p-2 col-md-8">
+      <div class="row">
+        <div class="col-md-4">
+          <div id="profile-data-left">
+            <img *ngIf="user.slikaProfila && user.slikaProfila != 'undefined'; else elseProfilePicture" src="{{user.slikaProfila}}" alt="Profile picture" class="img-style">
+            <ng-template #elseProfilePicture><img src="../../../assets/img/default/no-profile-picture.jpg" alt="Default profile picture" class="img-style"></ng-template>
+            <a routerLink="../profile/{{user._id}}" target="_blank">View profile</a>
+          </div>
+        </div>
+        <div class="col">
+          <div id="profile-data-right" class="ml-2">
+            <h2>{{user.ime}} {{user.priimek}}</h2>
+            <hr>
+            <p class="section-text">Date of birth: </p>
+            <p>{{user.datumRojstva | date}}</p>
+            <p class="section-text">Role:</p>
+            <p>{{user.tipRacuna}}</p>
+            <p class="section-text">Email:</p>
+            <p>{{user.email}}</p>
+            <p *ngIf="user.opis" class="section-text">Description:</p>
+            <p *ngIf="user.opis">{{user.opis}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Verification -->
+    <div class="verify-data-container p-2 col">
+      <img *ngIf="user.slikaDokumenta && user.slikaDokumenta != 'undefined'; else elseDocument" class="img-style img-doc" src="{{user.slikaDokumenta}}" alt="Document" (click)="showImage(user.slikaDokumenta)">
+      <ng-template #elseDocument><img class="img-style img-doc" src="../../../assets/img/default/no-document-id-blue.png" alt="Document" (click)="showImage('../../../assets/img/default/no-document-id-blue.png')"></ng-template>
+      <p class="verify-text">Verify user</p>
+      <p class="verify-text-id">{{user._id}}</p>
+      <p class="verify-text-id"><b>Status:</b> {{user.potrjen}}</p>
+
+      <!-- Buttons -->
+      <div class="d-flex justify-content-center">
+
+        <div class="btn-group btn-group-toggle" ngbRadioGroup name="radioBasic" [(ngModel)]="buttonValues[i].buttonValue">
+          <label ngbButtonLabel class="button-verify button-yes">
+            <input ngbButton type="radio" value="{{statusVerified}}" (click)="verify('yes', user._id, $event)"> YES
+          </label>
+          <label ngbButtonLabel class="button-verify button-no">
+            <input ngbButton type="radio" value="{{statusDenied}}" (click)="verify('no', user._id, $event)"> NO
+          </label>
+        </div>
+
+        <hr>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<!-- Show image -->
+<div id="myModal" class="modal">
+  <span class="close" (click)="closeImageModal()">&times;</span>
+  <img class="modal-content" id="img01">
+  <div id="caption"></div>
+</div>

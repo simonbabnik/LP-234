@@ -1,0 +1,32 @@
+.login-container {
+  width: 60%;
+  border: #cccccc solid 2px;
+  border-radius: 8px;
+  margin: auto;
+  padding-inline: 20px;
+  text-align: center;
+  background-color: white;
+}
+
+input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.m-top-5 {
+  margin-top: 5vh;
+}
+
+.m-bottom-5 {
+  margin-bottom: 5vh;
+}
+
+h1 {
+  font-weight: 500;
+  font-size: 1.5rem
+}

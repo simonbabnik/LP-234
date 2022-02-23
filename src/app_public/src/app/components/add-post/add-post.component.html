@@ -1,0 +1,38 @@
+<div class="container col-md-6 mt-5 mb-5">
+
+  <!--Alert-->
+  <div class="row justify-content-center mt-3">
+    <ngb-alert *ngIf="!alert.hidden" [type]="alert.type" (closed)="alert.hidden = true" class="w-75">{{ alert.message }}</ngb-alert>
+  </div>
+
+  <h1>Add post</h1>
+
+  <form [formGroup]="addPostForm" (ngSubmit)="addPost()">
+    <div class="form-group">
+      <label for="postTitle">Title</label>
+      <input type="text" class="form-control" id="postTitle" placeholder="Post title" formControlName="postTitle" required>
+    </div>
+    <div class="form-group">
+      <label for="postLocation">Location</label>
+      <select class="form-control" id="postLocation" formControlName="postLocation" required>
+        <option *ngFor="let location of locations" value="{{ location.kraj }}">{{ location.kraj }} ({{ location.postnaStevilka }})</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="postPrice">Price (€)</label>
+      <div class="input-group mb-3">
+        <input type="number" class="form-control" id="postPrice" placeholder="0" formControlName="postPrice" required min="0">
+        <div class="input-group-append">
+          <span class="input-group-text">€</span>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="postDescription">Description</label>
+      <textarea class="form-control" id="postDescription" placeholder="Write here about your service :)" rows="3" formControlName="postDescription" required></textarea>
+    </div>
+    <small id="emailHelp" class="form-text text-danger">Your email will be shared in the post.</small>
+    <button type="submit" class="button-color-accent">Submit</button>
+  </form>
+
+</div>

@@ -1,0 +1,20 @@
+[
+    {
+      "id_uporabnik": "4",
+      "id_pes": "pes1",
+      "datum_in_cas_zacetka": "2021-5-8T00:00:00.000Z",
+      "datum_in_cas_konca": "2021-5-9T00:00:00.000Z"
+    },
+    {
+      "id_uporabnik": "5",
+      "id_pes": "pes1",
+      "datum_in_cas_zacetka": "2021-5-9T00:00:00.000Z",
+      "datum_in_cas_konca": "2021-5-10T00:00:00.000Z"
+    },
+    {
+      "id_uporabnik": "4",
+      "id_pes": "pes1",
+      "datum_in_cas_zacetka": "2021-5-10T00:00:00.000Z",
+      "datum_in_cas_konca": "2021-5-11T00:00:00.000Z"
+    }
+]

@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.toolbar-main-div {
+  width: 100%;
+  background-color: rgb(255, 192, 203);
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+a {
+  text-decoration: none;
+  text-align: center;
+  border-radius: 15px;
+  flex-grow: 1;
+  margin: auto 5%;
+  color: black;
+  font-weight: bold;
+  height: 80%;
+  vertical-align: middle;
+  line-height: 8vh;
+}
+
+a:hover {
+  color: white;
+  background-color: palevioletred;
+}
+
+.logout {
+  background-color: palevioletred;
+  cursor: pointer;
+  color: white;
+}

@@ -1,0 +1,221 @@
+h1 {
+  text-align: center;
+  margin: 20px auto;
+}
+
+.verify-container {
+  border: black solid 2px;
+  border-radius: 10px;
+  width: 70% !important;
+  background-color: white;
+  margin: auto;
+}
+
+.profile-data-container {
+  display: inline-block;
+}
+
+#profile-data-left {
+  display: inline-block;
+  vertical-align: top;
+}
+
+#profile-data-right {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.verify-data-container {
+  display: inline-block;
+  border-left: black solid 1px;
+}
+
+#reason-container {
+  border-top: palevioletred solid 3px;
+  display: block;
+}
+
+.img-style {
+  max-height: 30vh;
+  max-width: 100%;
+  border-radius: 15px;
+  border: 1px black solid;
+  padding: 5px;
+  object-fit: cover;
+  display: block;
+  margin: auto;
+}
+
+.img-doc {
+  max-height: 20vh;
+  max-width: 100%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.img-doc:hover {
+  opacity: 0.7;
+}
+
+.center {
+  margin: auto;
+}
+
+/* Buttons */
+.button-verify {
+  background-color: rgb(255,242,244);
+  color: black;
+  width: 50%;
+  padding: 5px 20px;
+  margin: 8px 0;
+  border: black solid 2px;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: palevioletred;
+}
+
+.button-yes:hover {
+  background-color: mediumspringgreen;
+  color: black;
+}
+
+.button-no:hover {
+  background-color: #f83434;
+  color: black;
+}
+
+.button-yes.focus {
+  background-color: mediumspringgreen;
+  color: black;
+}
+
+.button-no.focus {
+  background-color: #f83434;
+  color: black;
+}
+
+.button-yes.active {
+  background-color: mediumspringgreen;
+  color: black;
+}
+
+.button-no.active {
+  background-color: #f83434;
+  color: black;
+}
+
+.button-yes:active {
+  background-color: mediumspringgreen;
+  color: black;
+}
+
+.button-no:active {
+  background-color: #f83434;
+  color: black;
+}
+
+button-yes:visited {
+  background-color: mediumspringgreen;
+  color: black;
+}
+
+.button-no:visited {
+  background-color: #f83434;
+  color: black;
+}
+
+a {
+  text-align:center;
+  display:block;
+}
+
+h2 {
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+  font-weight: 400;
+}
+
+hr {
+  background-color: black;
+  max-width: 90%;
+}
+
+.section-text {
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.verify-text {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: large;
+}
+
+.verify-text-id {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+/* Show image - code source: https://www.w3schools.com/css/css3_images.asp */
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+/* Add Animation */
+.modal-content, #caption {
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+  from {transform: scale(0.1)}
+  to {transform: scale(1)}
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
+}

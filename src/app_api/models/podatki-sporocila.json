@@ -1,0 +1,14 @@
+[
+    {
+      "id_posiljatelj": "3",
+      "id_prejemnik": "4",
+      "vsebina": "Pozdravljeni, ali bi lahko 20.5. peljali mojega psa na sprehod?",
+      "datum_in_cas": "2021-5-8T00:00:00.000Z"
+    },
+    {
+      "id_posiljatelj": "4",
+      "id_prejemnik": "3",
+      "vsebina": "Lahko :)",
+      "datum_in_cas": "2021-5-9T00:00:00.000Z"
+    }
+]

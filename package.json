@@ -1,0 +1,52 @@
+{
+  "name": "dog-walkers",
+  "version": "1.2.3",
+  "private": true,
+  "scripts": {
+    "uvozi-uporabnike": "docker cp ./app_api/models/podatki-uporabniki.json dog-walkers-mongodb:/podatki-uporabniki.json;docker exec -it dog-walkers-mongodb mongoimport --db DogWalkers --collection Uporabniki --mode upsert --upsertFields naziv --jsonArray --file podatki-uporabniki.json;docker exec -it dog-walkers-mongodb rm -rf podatki-uporabniki.json;",
+    "uvozi-sporocila": "docker cp ./app_api/models/podatki-sporocila.json dog-walkers-mongodb:/podatki-sporocila.json;docker exec -it dog-walkers-mongodb mongoimport --db DogWalkers --collection Sporocila --mode upsert --upsertFields naziv --jsonArray --file podatki-sporocila.json;docker exec -it dog-walkers-mongodb rm -rf podatki-sporocila.json;",
+    "uvozi-sprehode": "docker cp ./app_api/models/podatki-sprehodi.json dog-walkers-mongodb:/podatki-sprehode.json;docker exec -it dog-walkers-mongodb mongoimport --db DogWalkers --collection Sprehodi --mode upsert --upsertFields naziv --jsonArray --file podatki-sprehode.json;docker exec -it dog-walkers-mongodb rm -rf podatki-sprehode.json;",
+    "uvozi-oglase": "docker cp ./app_api/models/podatki-oglasi.json dog-walkers-mongodb:/podatki-oglase.json;docker exec -it dog-walkers-mongodb mongoimport --db DogWalkers --collection Oglasi --mode upsert --upsertFields naziv --jsonArray --file podatki-oglase.json;docker exec -it dog-walkers-mongodb rm -rf podatki-oglase.json;",
+    "start": "node app.js",
+    "publishheroku": "cd ../ && git subtree push --prefix src heroku master",
+    "test": "nyc --reporter=html --reporter=text --temp-dir=./test/pokritost/.nyc_output --report-dir=./test/pokritost mocha --exit",
+    "testSP": "mocha test --bail --reporter mochawesome --reporter-options autoOpen=true,reportDir=test/porocilo,reportFilename=porocilo,json=false"
+  },
+  "engines": {
+    "node": ">=14.15.0",
+    "npm": ">=6.14.8"
+  },
+  "dependencies": {
+    "@angular/localize": "^11.2.13",
+    "atob": "^2.1.2",
+    "axios": "^0.21.0",
+    "cookie-parser": "*",
+    "cors": "^2.8.5",
+    "debug": "*",
+    "dotenv": "^8.2.0",
+    "express": "*",
+    "express-jwt": "^6.0.0",
+    "hbs": "^4.1.2",
+    "http-errors": "*",
+    "jsdom": "^16.4.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.10.15",
+    "mongoose-unique-validator": "^2.0.3",
+    "morgan": "*",
+    "node-sessionstorage": "^1.0.0",
+    "nodemailer": "^6.4.17",
+    "nodemon": "^2.0.6",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "swagger-jsdoc": "^6.0.0",
+    "swagger-ui-express": "^4.1.6"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chromedriver": "^87.0.4",
+    "mocha": "^8.2.1",
+    "mochawesome": "^6.2.1",
+    "selenium-webdriver": "^4.0.0-alpha.8",
+    "nyc": "*"
+  }
+}

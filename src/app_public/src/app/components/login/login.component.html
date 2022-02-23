@@ -1,0 +1,23 @@
+<div class="container">
+
+  <!--Login-->
+  <div class="login-container mt-5 mb-5">
+
+    <!--Alert-->
+    <div class="row justify-content-center mt-3">
+      <ngb-alert *ngIf="!alert.hidden" [type]="alert.type" (closed)="alert.hidden = true" class="w-75">{{ alert.message }}</ngb-alert>
+    </div>
+
+    <h1 class="mt-3 m-bottom-5 ">Login</h1>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <input type="email" id="email" name="email" placeholder="Email" formControlName="email" required>
+      <input type="password" id="password" name="password" placeholder="Password" formControlName="password" required>
+      <button type="submit" class="button-color-accent m-top-5" [disabled]="!loginForm.valid">Login</button>
+      <p>OR</p>
+      <button type="button" class="button-color-accent m-bottom-5" routerLink="/register">Register</button>
+    </form>
+  </div>
+
+
+
+</div>

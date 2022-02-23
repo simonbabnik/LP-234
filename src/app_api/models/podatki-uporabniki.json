@@ -1,0 +1,119 @@
+[
+    {
+      "_id": {"$oid":"aaaaaaaaaaaaaaaaaaaaaaa1"},
+      "ime": "Admin",
+      "priimek": "Admin",
+      "email": "admin@gmail.com",
+      "datumRojstva": "1.1.2000",
+      "zgoscenaVrednost": "zgoscena_vrednost",
+      "nakljucnaVrednost": "nakljucna_vrednost",
+      "slika_profila": "slika_profila",
+      "slika_dokumenta": "slika_dokumenta",
+      "tip_racuna": "admin"
+    },
+    {
+      "_id": {"$oid":"aaaaaaaaaaaaaaaaaaaaaaa2"},
+      "ime": "Potrjevalec",
+      "priimek": "Profilov",
+      "email": "potrjevalec.profilov@gmail.com",
+      "datumRojstva": "1.1.2000",
+      "zgoscenaVrednost": "zgoscena_vrednost",
+      "nakljucnaVrednost": "nakljucna_vrednost",
+      "slika_profila": "slika_profila",
+      "slika_dokumenta": "slika_dokumenta",
+      "tip_racuna": "potrjevalec"
+    },
+    {
+      "_id": {"$oid":"aaaaaaaaaaaaaaaaaaaaaaa3"},
+      "ime": "Lastnik",
+      "priimek": "Psov",
+      "email": "lastnik.psov@gmail.com",
+      "datumRojstva": "1.1.2000",
+      "zgoscenaVrednost": "zgoscena_vrednost",
+      "nakljucnaVrednost": "nakljucna_vrednost",
+      "slika_profila": "slika_profila",
+      "slika_dokumenta": "slika_dokumenta",
+      "tip_racuna": "lastnik",
+      "psi": [
+        {
+          "_id": "pes1",
+          "ime": "Rex",
+          "slika": "Slika",
+          "opis": "Prijazen, nezahteven pes",
+          "pasma": "Nemski ovcar",
+          "ocene": [
+            {
+              "id_uporabnik": {"$oid":"aaaaaaaaaaaaaaaaaaaaaaa4"},
+              "komentar": "piki<3",
+              "ocena": 5
+            }
+          ],
+          "povprecnaOcena": 5
+        }
+      ]
+    },
+    {
+      "_id": {"$oid":"aaaaaaaaaaaaaaaaaaaaaaa4"},
+      "ime": "Sprehajalec",
+      "priimek": "Psov",
+      "email": "sprehajalec.psov@gmail.com",
+      "datumRojstva": "1.1.2000",
+      "zgoscenaVrednost": "zgoscena_vrednost",
+      "nakljucnaVrednost": "nakljucna_vrednost",
+      "slika_profila": "slika_profila",
+      "slika_dokumenta": "slika_dokumenta",
+      "tip_racuna": "sprehajalec",
+      "ocene": [
+        {
+          "id_uporabnik": {"$oid":"aaaaaaaaaaaaaaaaaaaaaaa3"},
+          "komentar": "Slab sprehajalec, ne priporocam.",
+          "ocena": 5
+        }
+      ],
+      "povprecnaOcena": 5,
+      "opis": "Sprehajam vase pse po ugodni ceni"
+    },
+    {
+      "_id": {"$oid":"aaaaaaaaaaaaaaaaaaaaaaa5"},
+      "ime": "Sprehajalec",
+      "priimek": "Psov",
+      "email": "sprehajalec.psov2@gmail.com",
+      "datumRojstva": "1.1.2000",
+      "zgoscenaVrednost": "zgoscena_vrednost",
+      "nakljucnaVrednost": "nakljucna_vrednost",
+      "slika_profila": "slika_profila",
+      "slika_dokumenta": "slika_dokumenta",
+      "tip_racuna": "sprehajalec",
+      "ocene": [
+        {
+          "id_uporabnik": {"$oid":"aaaaaaaaaaaaaaaaaaaaaaa3"},
+          "komentar": "Super sprehajalec, zelo priporocam!",
+          "ocena": 4
+        }
+      ],
+      "povprecnaOcena": 4,
+      "opis": "Sprehajam vase pse po ugodni ceni"
+    },
+    {
+      "_id": {"$oid":"aaaaaaaaaaaaaaaaaaaaaaa6"},
+      "ime": "Sprehajalec",
+      "priimek": "Psov",
+      "email": "sprehajalec.psov3@gmail.com",
+      "datumRojstva": "1.1.2000",
+      "zgoscenaVrednost": "zgoscena_vrednost",
+      "nakljucnaVrednost": "nakljucna_vrednost",
+      "slika_profila": "slika_profila",
+      "slika_dokumenta": "slika_dokumenta",
+      "tip_racuna": "sprehajalec",
+      "ocene": [
+        {
+          "id_uporabnik": {"$oid":"aaaaaaaaaaaaaaaaaaaaaaa3"},
+          "komentar": "Ok sprehajalec.",
+          "ocena": 1
+        }
+      ],
+      "povprecnaOcena": 1,
+      "opis": "Sprehajam vase pse po ugodni ceni"
+    }
+  ]
+

@@ -1,0 +1,130 @@
+.register-container {
+  width: 60%;
+  border: #cccccc solid 2px;
+  border-radius: 8px;
+  margin: auto;
+  padding-inline: 20px;
+  text-align: center;
+  background-color: white;
+}
+
+input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=checkbox] {
+  width: auto;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+}
+
+.input-inline {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.input-inline-left {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: left;
+  align-items: center;
+}
+
+.field-inline {
+  width: 60%;
+  right: 0;
+}
+
+.label-inline {
+  display: inline-block;
+  float: left;
+}
+
+.m-top-5 {
+  margin-top: 5vh;
+}
+
+.m-bottom-5 {
+  margin-bottom: 5vh;
+}
+
+h1 {
+  font-weight: 500;
+  font-size: 1.5rem
+}
+
+/* Checkbox - source: https://css-tricks.com/the-checkbox-hack/ */
+
+/* Base for label styling */
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+  position: absolute;
+  left: 0;
+  opacity: 0.01;
+}
+[type="checkbox"]:not(:checked) + label,
+[type="checkbox"]:checked + label {
+  position: relative;
+  padding-left: 2.3em;
+  font-size: 1.05em;
+  line-height: 1.7;
+  cursor: pointer;
+}
+
+/* checkbox aspect */
+[type="checkbox"]:not(:checked) + label:before,
+[type="checkbox"]:checked + label:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1.4em;
+  height: 1.4em;
+  border: 1px solid #aaa;
+  background: #FFF;
+  border-radius: .2em;
+  box-shadow: inset 0 1px 3px rgba(0,0,0, .1), 0 0 0 rgba(203, 34, 237, .2);
+  -webkit-transition: all .275s;
+  transition: all .275s;
+}
+
+/* checked mark aspect */
+[type="checkbox"]:not(:checked) + label:after,
+[type="checkbox"]:checked + label:after {
+  content: '✕';
+  position: absolute;
+  top: .525em;
+  left: .10em; /* was .18em, but bootstrap messed up with position */
+  font-size: 1.375em;
+  color: #CB22ED;
+  line-height: 0;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+}
+
+/* checked mark aspect changes */
+[type="checkbox"]:not(:checked) + label:after {
+  opacity: 0;
+  -webkit-transform: scale(0) rotate(45deg);
+  transform: scale(0) rotate(45deg);
+}
+
+[type="checkbox"]:checked + label:after {
+  opacity: 1;
+  -webkit-transform: scale(1) rotate(0);
+  transform: scale(1) rotate(0);
+}
+
+/* Accessibility */
+[type="checkbox"]:checked:focus + label:before,
+[type="checkbox"]:not(:checked):focus + label:before {
+  box-shadow: inset 0 1px 3px rgba(0,0,0, .1), 0 0 0 6px rgba(203, 34, 237, .2);
+}

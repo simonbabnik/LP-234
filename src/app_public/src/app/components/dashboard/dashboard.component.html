@@ -1,0 +1,21 @@
+<h1 style=" text-align: center;">Admin dashboard</h1>
+
+<div class="container" *ngFor="let user of users">
+  <h5 class="card-header d-flex justify-content-between align-items-center">
+    <div style="right: 10px;">
+      <button type="button" class="btn btn-sm btn-warning" title="Edit post" (click)="preusmeri(user)"><img class="icon" src="../../../assets/img/edit.png" alt="edit post"></button>
+      <button type="button" class="btn btn-sm btn-danger btn-danger-special m-left" title="Delete post" (click)="deleteUser(user)"><img class="icon" src="../../../assets/img/delete.png" alt="delete post"></button>
+    </div>
+  </h5>
+  <div class="data-fields">
+    <!-- <img src="../../../assets/img/{{ user.slikaProfila }}" class="profile-image"> -->
+    <div class="user-data">
+      <h2 style="text-align: center; font-size: 34px;">{{ user.ime }} {{ user.priimek }}</h2>
+      <p class="h1" style="font-size: 24px;">{{ user.datumRojstva | date}}</p>
+      <p class="h1" style="font-size: 24px;"><b>Description:</b></p>
+      <div class="profile-description">
+        {{ user.opis }}
+      </div>
+    </div>
+  </div>
+</div>
